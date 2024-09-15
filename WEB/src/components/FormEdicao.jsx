@@ -1,8 +1,9 @@
 import '../pages/home/style.css';
+
 function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, editBirthDate, setEditBirthDate, onSave, onCancel }) {
   return (
-    <div className="edit-form">
-      <h2>Editar Usuário</h2>
+    <form className="edit-form">
+      <h1>Editar Usuário</h1>
       <input
         type='text'
         value={editName}
@@ -23,8 +24,9 @@ function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, edit
       />
       <button type='button' onClick={onSave}>Atualizar</button>
       <button type='button' onClick={onCancel}>Cancelar</button>
-    </div>
+    </form>
   );
 }
 
 export default FormEdicao;
+
