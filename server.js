@@ -16,4 +16,5 @@ app.get('/users', listAllUsers);
 app.get('/users/:id', getUserById);
 app.get('/search', searchUser);
 
-app.listen(3000);
+const port = process.env.PORT || 3000;
+app.listen(port);
