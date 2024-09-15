@@ -8,6 +8,10 @@ function FormCadastro({ onSubmit }) {
 
   const handleSubmit = () => {
     onSubmit(inputName.current.value, inputEmail.current.value, inputBirthDate.current.value);
+
+    inputName.current.value = '';
+    inputEmail.current.value = '';
+    inputBirthDate.current.value = '';
   };
 
   return (

@@ -1,5 +1,12 @@
 import '../pages/home/style.css';
+
 function FormBusca({ onSearch, searchParam, setSearchParam }) {
+  
+  const handleSearch = () => {
+    onSearch();  
+    setSearchParam('');  
+  };
+
   return (
     <form>
       <h1>Buscar Usuários</h1>
@@ -9,9 +16,10 @@ function FormBusca({ onSearch, searchParam, setSearchParam }) {
         value={searchParam}
         onChange={(e) => setSearchParam(e.target.value)}
       />
-      <button type='button' onClick={onSearch}>Buscar</button>
+      <button type='button' onClick={handleSearch}>Buscar</button>
     </form>
   );
 }
 
 export default FormBusca;
+

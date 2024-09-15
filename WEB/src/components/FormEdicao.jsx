@@ -1,6 +1,12 @@
 import '../pages/home/style.css';
 
 function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, editBirthDate, setEditBirthDate, onSave, onCancel }) {
+  
+  const handleCancel = () => {
+    onCancel();  
+    window.location.reload();  
+  };
+
   return (
     <form className="edit-form">
       <h1>Editar Usuário</h1>
@@ -23,10 +29,9 @@ function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, edit
         placeholder='Data de Nascimento'
       />
       <button type='button' onClick={onSave}>Atualizar</button>
-      <button type='button' onClick={onCancel}>Cancelar</button>
+      <button type='button' onClick={handleCancel}>Cancelar</button>
     </form>
   );
 }
 
 export default FormEdicao;
-
