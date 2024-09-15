@@ -14,6 +14,6 @@ app.put('/users/:id', updateUser);
 app.delete('/users/:id', deleteUser);
 app.get('/users', listAllUsers);
 app.get('/users/:id', getUserById);
-app.get('/users/search', searchUser);
+app.get('/search', searchUser);
 
 app.listen(3000);

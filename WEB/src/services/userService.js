@@ -22,7 +22,13 @@ export async function createUser(name, email, birthDate) {
 
 export async function searchUser(param) {
   try {
-    const response = await api.get(`/users/${param}`);
+    // Determina a URL com base no parâmetro fornecido
+    const url = param.includes('@')
+      ? `/search?email=${encodeURIComponent(param)}`
+      : `/search?name=${encodeURIComponent(param)}`;
+
+    // Faz a requisição para o endpoint correto
+    const response = await api.get(url);
     return response.data;
   } catch (error) {
     console.error('Erro ao buscar usuário:', error);
