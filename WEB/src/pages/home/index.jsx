@@ -63,34 +63,44 @@ function Home() {
 
   return (
     <div className='container'>
-      <FormCadastro onSubmit={handleCreateUser} />
-      <FormBusca searchParam={searchParam} setSearchParam={setSearchParam} onSearch={handleSearchUser} />
-      {userToEdit && (
-        <FormEdicao
-          user={userToEdit}
-          editName={editName}
-          setEditName={setEditName}
-          editEmail={editEmail}
-          setEditEmail={setEditEmail}
-          editBirthDate={editBirthDate}
-          setEditBirthDate={setEditBirthDate}
-          onSave={handleUpdateUser}
-          onCancel={() => setUserToEdit(null)}
-        />
-      )}
+      <div className='form-container'>
+        <FormCadastro onSubmit={handleCreateUser} />
+        <FormBusca searchParam={searchParam} setSearchParam={setSearchParam} onSearch={handleSearchUser} />
+        {userToEdit && (
+          <FormEdicao
+            user={userToEdit}
+            editName={editName}
+            setEditName={setEditName}
+            editEmail={editEmail}
+            setEditEmail={setEditEmail}
+            editBirthDate={editBirthDate}
+            setEditBirthDate={setEditBirthDate}
+            onSave={handleUpdateUser}
+            onCancel={() => setUserToEdit(null)}
+          />
+        )}
+      </div>
       {/* Lista de Usuários */}
-      {users.map((user) => (
-        <div key={user.id} className="card">
-          <div>
-            <p>Nome: <span>{user.name}</span></p>
-            <p>Email: <span>{user.email}</span></p>
-            <p>Data de Nascimento: <span>{dayjs(user.birthDate).format('DD-MM-YYYY')}</span></p>
-          </div>
-          <button onClick={() => handleDeleteUser(user.id)}>
-            <img src='../src/assets/trash1.svg' alt="Excluir" />
-          </button>
+      <div className='users-container'>
+        <header>
+          <h2>Perfis Ativos</h2>
+          <p>Utilize as opções de edição e exclusão para gerenciar os dados.</p>
+        </header>
+        <div className='users-list'>
+          {users.map((user) => (
+            <div key={user.id} className="card">
+              <div>
+                <p>Nome: <span>{user.name}</span></p>
+                <p>Email: <span>{user.email}</span></p>
+                <p>Data de Nascimento: <span>{dayjs(user.birthDate).format('DD-MM-YYYY')}</span></p>
+              </div>
+              <button onClick={() => handleDeleteUser(user.id)}>
+                <img src='../src/assets/trash1.svg' alt="Excluir" />
+              </button>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import '../pages/home/style.css';
 import { useRef } from 'react';
+import { RiCalendar2Line } from "react-icons/ri";
+import { RiAccountBoxLine } from "react-icons/ri";
+import { RiAtLine } from "react-icons/ri";
+
 
 function FormCadastro({ onSubmit }) {
   const inputName = useRef();
@@ -16,11 +20,23 @@ function FormCadastro({ onSubmit }) {
 
   return (
     <form>
-      <h1>Cadastro de Usuários</h1>
-      <input placeholder="Nome" type='text' ref={inputName} />
-      <input placeholder="Email" type='email' ref={inputEmail} />
-      <input placeholder="Data de Nascimento" type='date' ref={inputBirthDate} />
-      <button type='button' onClick={handleSubmit}>Cadastrar</button>
+      <header>
+        <h1>Cadastro de Usuários</h1>
+        <p>Preencha os campos abaixo para cadastrar um novo usuário.</p>
+      </header>
+      <div className="input-container">
+        <RiAccountBoxLine className="input-icon" />
+        <input placeholder="Nome" id="name" name="name" type='text'  autoComplete="off" ref={inputName} />
+      </div>
+      <div className="input-container">
+        <RiAtLine className="input-icon" />
+        <input placeholder="Email" id="email" name="email" type='email'  autoComplete="off"  ref={inputEmail} />
+      </div>
+      <div className="input-container">
+        <RiCalendar2Line className="input-icon" />
+        <input placeholder="Data de Nascimento" id="birthDate" name="birthDate" type='date' ref={inputBirthDate} />
+      </div>
+        <button type='button' onClick={handleSubmit}>Cadastrar</button>
     </form>
   );
 }
