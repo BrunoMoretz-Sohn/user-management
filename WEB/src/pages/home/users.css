@@ -1,11 +1,26 @@
 .users-container {
-  padding-top: 5.2rem;
   display: flex; 
   flex-direction: column; 
   align-items: center; 
   box-sizing: border-box;
-  height: 130vh;
+  height: 180vh;
+}
 
+.intro-text{
+  padding: 8.6rem;
+}
+
+.intro-text h4 {
+  font-size: 2.6rem;
+  font-family: "Montserrat", system-ui;
+  font-weight: 500;
+}
+
+.intro-text p {
+  margin-top: 1vh;
+  font-family: "Montserrat", system-ui;
+  line-height: 2;
+  font-size: 1rem;
 }
 
 h2 {
@@ -23,6 +38,8 @@ h2 {
   gap: 1rem; 
   align-items: center; 
   box-sizing: border-box;
+  border: solid 0.5px var(--line-gray-strong);
+  border-radius: 10px;
 }
 
 .user-button {
@@ -33,10 +50,19 @@ h2 {
 }
 
 .user-icon {
-  width: 3vh;
-  height: 3vh;
+  width: 2.5vh;
+  height: 2.5vh;
   color: var(--icon-green-primary);
-  top: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.5;
 }
 
 .card {
@@ -45,7 +71,7 @@ h2 {
   justify-content: space-between;
   margin: 10px;
   padding: 20px;
-  width: 100%;
+  width: 90%;
   min-width: 300px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -58,15 +84,5 @@ h2 {
       color: var(--text-color-secondary);
       font-weight: 200;
     }
-  }
-
-  & button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-
-  & button:hover {
-    opacity: 0.5;
   }
 }

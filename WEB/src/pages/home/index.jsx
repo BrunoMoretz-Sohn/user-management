@@ -6,6 +6,7 @@ import FormEdicao from '../../components/FormEdicao';
 import dayjs from 'dayjs';
 import { TbUserEdit } from "react-icons/tb";
 import { TbTrash } from "react-icons/tb";
+import Logo from "../../assets/Logo.png"
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -71,52 +72,63 @@ function Home() {
   };
 
   return (
-    <div className='container'>
-      <div className='form-container'>
-        <FormCadastro onSubmit={handleCreateUser} />
-        <FormBusca searchParam={searchParam} setSearchParam={setSearchParam} onSearch={handleSearchUser} />
-        {userToEdit && (
-          <FormEdicao
-            user={userToEdit}
-            editName={editName}
-            setEditName={setEditName}
-            editEmail={editEmail}
-            setEditEmail={setEditEmail}
-            editBirthDate={editBirthDate}
-            setEditBirthDate={setEditBirthDate}
-            onSave={handleUpdateUser}
-            onCancel={() => setUserToEdit(null)}
-          />
-        )}
-      </div>
+    <>
+        <div className='img-logo'>
+          <img src={ Logo } alt="Logo" className='Logo' tittle="User Management Logo"/>
+          <h3>USER MANAGEMENT</h3>
+        </div>
+        <div className='container'>
+        <div className='form-container'>
+          <FormCadastro onSubmit={handleCreateUser} />
+          <FormBusca searchParam={searchParam} setSearchParam={setSearchParam} onSearch={handleSearchUser} />
+          {userToEdit && (
+            <FormEdicao
+              user={userToEdit}
+              editName={editName}
+              setEditName={setEditName}
+              editEmail={editEmail}
+              setEditEmail={setEditEmail}
+              editBirthDate={editBirthDate}
+              setEditBirthDate={setEditBirthDate}
+              onSave={handleUpdateUser}
+              onCancel={() => setUserToEdit(null)}
+            />
+          )}
+        </div>
       
-      <div className='users-container'>
-        <header>
-          <h2>Perfis Ativos</h2>
-          <p>Utilize as opções de edição e exclusão para gerenciar os dados.</p>
-        </header>
-        <div className='users-list'>
-          {users.map((user) => (
-            <div key={user.id} className="card">
-              <div>
-                <p>Nome: <span>{user.name}</span></p>
-                <p>Email: <span>{user.email}</span></p>
-                <p>Data de Nascimento: <span>{dayjs(user.birthDate).format('DD-MM-YYYY')}</span></p>
-                <p>ID: <span>{user.id}</span></p>
+        
+        <div className='users-container'>
+          <div className="intro-text">
+            <h4>Utilize o sistema para buscar usuários, cadastrar novos perfis e gerenciar informações.</h4>
+            <p>A função de busca permite localizar rapidamente um usuário, enquanto o cadastro e a edição facilitam a atualização de dados conforme necessário.</p>
+          </div>
+          <header>
+            <h2>Perfis Ativos</h2>
+            <p>Utilize as opções de edição e exclusão para gerenciar os dados.</p>
+          </header>
+          <div className='users-list'>
+            {users.map((user) => (
+              <div key={user.id} className="card">
+                <div>
+                  <p>Nome: <span>{user.name}</span></p>
+                  <p>Email: <span>{user.email}</span></p>
+                  <p>Data de Nascimento: <span>{dayjs(user.birthDate).format('DD-MM-YYYY')}</span></p>
+                  <p>ID: <span>{user.id}</span></p>
+                </div>
+                <div className="user-button">
+                  <button onClick={() => handleEditUser(user)}>
+                    <TbUserEdit id="edit-icon" className="user-icon" />
+                  </button>
+                  <button onClick={() => handleDeleteUser(user.id)}>
+                    <TbTrash id="delete-icon" className="user-icon" />
+                  </button>
+                </div>
               </div>
-              <div className="user-button">
-                <button onClick={() => handleEditUser(user)}>
-                  <TbUserEdit id="edit-icon" className="user-icon" />
-                </button>
-                <button onClick={() => handleDeleteUser(user.id)}>
-                  <TbTrash id="delete-icon" className="user-icon" />
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

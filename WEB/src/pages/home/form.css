@@ -3,17 +3,20 @@
   flex-direction: column;
   align-items: center;
   border-radius: 0.75rem;
-  padding: 5rem;
+  padding-top: 10rem;
+  padding-right: 5rem;
+  padding-left: 5rem;
   padding-bottom: 1.5rem;
   gap: 50px;
   border: solid 0.5px var(--line-gray-strong);
   background-color: var(--bg-gray-primary);
   max-width: 612px;
-  height: 160vh;
+  height: 180vh;
 }
 
 form { 
   max-width: 512px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -38,11 +41,11 @@ form {
 
   & input {
     border: 1px solid var(--bg-gray-primary);
-    border-radius: 10px;
+    border-radius: .5rem;
     height: 5vh;
-    width: 40vw;
+    width: 100%;
     background-color: var(--bg-gray-primary);
-    color: #fff;
+    color: var(--text-color-primary);
     font-size: 16px;
     padding-left: 10px;
     outline: none;
@@ -56,6 +59,7 @@ form {
       display: none;
     }
   }
+
 }
 
 .input-container {
@@ -64,6 +68,10 @@ form {
   flex-direction: row;
   padding: 0.5vh;
   border-radius: 10px;
+}
+
+ .input-container input:focus {
+  outline: .02rem solid var(--icon-green-primary);
 }
 
 .input-icon {
@@ -75,3 +83,4 @@ form {
   align-self: center;
   margin-left: 0.5vw;
 }
+

@@ -15,6 +15,31 @@
   margin-bottom: 1.5rem;
 }
 
+.img-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--line-gray-strong); 
+  padding: 0.75rem 1.25rem;
+  border-bottom-right-radius: 0.75rem;
+  height: 4.5rem;
+  width: 15rem;
+  display: flex;
+  flex-direction: row;
+
+  & .Logo {
+    height: 3rem;
+    width: auto;
+  }
+
+}
+
+h3 {
+  font-size: 16px;
+  color: var(--icon-green-secondary);
+  padding-left: 06px;
+}
+
 h1 {
   color: var(--text-color-primary);
   font-size: 1.5rem;
