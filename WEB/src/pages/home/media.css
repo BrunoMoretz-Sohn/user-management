@@ -14,7 +14,7 @@
 
   .intro-text {
     padding-inline: 10rem; 
-    padding-bottom: 6rem;
+    padding-bottom: 4.2rem;
   }
 
   .intro-text h4 {
@@ -24,5 +24,78 @@
   .intro-text p {
     font-size: clamp(0.7rem, 3vw, 1rem); 
   }
+
+  .users-list {
+    height: 87vh;
+  }
+
+}
+
+@media (max-width: 1600px) {
+
+  .form-container {
+    height: 170vh;
+  }
+
+  .users-container {
+    height: 165vh;
+  }
+
+  .users-list {
+    margin-bottom: 6vh;
+    
+  }
+
+  .intro-text {
+    padding-top: 18vh;
+    padding-inline: 6vw; 
+    padding-bottom: 18vh;
+  }
+
+  .intro-text h4 {
+    font-size: clamp(1.2rem, 4vw, 2.2rem); 
+  }
+
+  .intro-text p {
+    font-size: clamp(0.7rem, 3vw, 1rem); 
+  }
+
+  .users-list {
+    height: 87vh;
+  }
+
+}
+
+@media (max-width: 768px) { /* ajuste o valor conforme necessário */
+  .container {
+    display: flex!important;
+    flex-direction: column;
+    height: 230vh;
+  }
+
+  .form-container {
+    height: auto;
+  }
+
+  .intro-text {
+    display: none;
+  }
+  
+  .list-container header {
+   padding-inline: 20vw;
+   padding-top: 2vh;
+   padding-bottom: 2vh;
+   word-wrap: break-word;
+   
+  }
+
+  .users-list {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    max-height: 80vh;
+
+  }
+
 
 }
