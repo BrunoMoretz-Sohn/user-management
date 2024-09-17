@@ -1,0 +1,28 @@
+@media (max-width: 1600px) {
+
+  .form-container {
+    height: 175vh;
+  }
+
+  .users-container {
+    height: 180vh;
+  }
+
+  .users-list {
+    margin-bottom: 5vh;
+  }
+
+  .intro-text {
+    padding-inline: 10rem; 
+    padding-bottom: 6rem;
+  }
+
+  .intro-text h4 {
+    font-size: clamp(1.2rem, 4vw, 2.6rem); 
+  }
+
+  .intro-text p {
+    font-size: clamp(0.7rem, 3vw, 1rem); 
+  }
+
+}

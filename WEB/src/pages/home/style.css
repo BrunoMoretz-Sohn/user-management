@@ -1,5 +1,6 @@
 @import url(../home/form.css);
 @import url(../home/users.css);
+@import url(../home/media.css);
 
 .container {
   display: grid;
@@ -19,7 +20,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--line-gray-strong); 
+  background-color: var(--line-gray-strong);
   padding: 0.75rem 1.25rem;
   border-bottom-right-radius: 0.75rem;
   height: 4.5rem;
