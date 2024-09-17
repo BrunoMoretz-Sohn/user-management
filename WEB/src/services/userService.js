@@ -25,9 +25,10 @@ export async function searchUser(param) {
     
     const url = param.includes('@')
       ? `/search?email=${encodeURIComponent(param)}`
-      : `/search?name=${encodeURIComponent(param)}`;
+      : /^[a-fA-F0-9]{24}$/.test(param)
+        ? `/users/${encodeURIComponent(param)}` 
+        : `/search?name=${encodeURIComponent(param)}`; 
 
-    
     const response = await api.get(url);
     return response.data;
   } catch (error) {
