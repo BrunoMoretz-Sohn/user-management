@@ -102,30 +102,32 @@ function Home() {
             <h4>Utilize o sistema para buscar usuários, cadastrar novos perfis e gerenciar informações.</h4>
             <p>A função de busca permite localizar rapidamente um usuário, enquanto o cadastro e a edição facilitam a atualização de dados conforme necessário.</p>
           </div>
-          <header>
-            <h2>Perfis Ativos</h2>
-            <p>Utilize as opções de edição e exclusão para gerenciar os dados.</p>
-          </header>
-          <div className='users-list'>
-            {users.map((user) => (
-              <div key={user.id} className="card">
-                <div>
-                  <p>Nome: <span>{user.name}</span></p>
-                  <p>Email: <span>{user.email}</span></p>
-                  <p>Data de Nascimento: <span>{dayjs(user.birthDate).format('DD-MM-YYYY')}</span></p>
-                  <p>ID: <span>{user.id}</span></p>
+          <div className='list-container'>
+            <header>
+              <h2>Perfis Ativos</h2>
+              <p>Utilize as opções de edição e exclusão para gerenciar os dados.</p>
+            </header>
+            <div className='users-list'>
+              {users.map((user) => (
+                <div key={user.id} className="card">
+                  <div>
+                    <p>Nome: <span>{user.name}</span></p>
+                    <p>Email: <span>{user.email}</span></p>
+                    <p>Data de Nascimento: <span>{dayjs(user.birthDate).format('DD-MM-YYYY')}</span></p>
+                    <p>ID: <span>{user.id}</span></p>
+                  </div>
+                  <div className="user-button">
+                    <button onClick={() => handleEditUser(user)}>
+                      <TbUserEdit id="edit-icon" className="user-icon" />
+                    </button>
+                    <button onClick={() => handleDeleteUser(user.id)}>
+                      <TbTrash id="delete-icon" className="user-icon" />
+                    </button>
+                  </div>
                 </div>
-                <div className="user-button">
-                  <button onClick={() => handleEditUser(user)}>
-                    <TbUserEdit id="edit-icon" className="user-icon" />
-                  </button>
-                  <button onClick={() => handleDeleteUser(user.id)}>
-                    <TbTrash id="delete-icon" className="user-icon" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </div>  
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@
 
 .intro-text {
   padding-top: 6rem;
-  padding-inline: 20rem;
+  padding-inline: 18rem;
   padding-bottom: 6rem;
   margin-bottom: 4rem;
   box-sizing: border-box;
@@ -28,6 +28,10 @@
   font-size: 0.9rem;
 }
 
+.list-container header{
+  padding-left: 2vh;
+}
+
 h2 {
   font-size: 1.5rem;
   font-weight: 500;
@@ -36,6 +40,7 @@ h2 {
 .users-list {
   padding-right: 2rem;
   margin: 2vh;
+  width: 35vw;
   margin-bottom: 5vh;
   overflow-y: auto;
   overflow-x: hidden;
