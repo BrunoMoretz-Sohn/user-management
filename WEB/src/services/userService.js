@@ -22,12 +22,12 @@ export async function createUser(name, email, birthDate) {
 
 export async function searchUser(param) {
   try {
-    // Determina a URL com base no parâmetro fornecido
+    
     const url = param.includes('@')
       ? `/search?email=${encodeURIComponent(param)}`
       : `/search?name=${encodeURIComponent(param)}`;
 
-    // Faz a requisição para o endpoint correto
+    
     const response = await api.get(url);
     return response.data;
   } catch (error) {

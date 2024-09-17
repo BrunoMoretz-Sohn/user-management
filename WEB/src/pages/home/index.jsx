@@ -4,6 +4,8 @@ import FormCadastro from '../../components/FormCadastro';
 import FormBusca from '../../components/FormBusca';
 import FormEdicao from '../../components/FormEdicao';
 import dayjs from 'dayjs';
+import { TbUserEdit } from "react-icons/tb";
+import { TbTrash } from "react-icons/tb";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -51,6 +53,13 @@ function Home() {
     }
   };
 
+  const handleEditUser = (user) => {
+    setUserToEdit(user);
+    setEditName(user.name);
+    setEditEmail(user.email);
+    setEditBirthDate(dayjs(user.birthDate).format('YYYY-MM-DD'));
+  };
+
   const handleDeleteUser = async (id) => {
     try {
       await deleteUser(id);
@@ -80,7 +89,7 @@ function Home() {
           />
         )}
       </div>
-      {/* Lista de Usuários */}
+      
       <div className='users-container'>
         <header>
           <h2>Perfis Ativos</h2>
@@ -93,10 +102,16 @@ function Home() {
                 <p>Nome: <span>{user.name}</span></p>
                 <p>Email: <span>{user.email}</span></p>
                 <p>Data de Nascimento: <span>{dayjs(user.birthDate).format('DD-MM-YYYY')}</span></p>
+                <p>ID: <span>{user.id}</span></p>
               </div>
-              <button onClick={() => handleDeleteUser(user.id)}>
-                <img src='../src/assets/trash1.svg' alt="Excluir" />
-              </button>
+              <div className="user-button">
+                <button onClick={() => handleEditUser(user)}>
+                  <TbUserEdit id="edit-icon" className="user-icon" />
+                </button>
+                <button onClick={() => handleDeleteUser(user.id)}>
+                  <TbTrash id="delete-icon" className="user-icon" />
+                </button>
+              </div>
             </div>
           ))}
         </div>

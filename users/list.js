@@ -36,21 +36,21 @@ export const searchUser = async (req, res) => {
 
     const whereConditions = {};
     if (name) {
-      whereConditions.name = name;
+      whereConditions.name = { contains: name, mode: 'insensitive' }; 
     }
     if (email) {
-      whereConditions.email = email;
+      whereConditions.email = { contains: email, mode: 'insensitive' }; 
     }
 
-    const user = await prisma.user.findFirst({
+    const users = await prisma.user.findMany({
       where: whereConditions,
     });
 
-    if (!user) {
+    if (users.length === 0) {
       return res.status(404).json({ error: 'Usuário não encontrado' });
     }
 
-    res.status(200).json(user);
+    res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ error: 'Erro ao buscar usuário' });
   }
