@@ -1,10 +1,19 @@
 import '../pages/home/style.css';
-import { RiCalendar2Line } from "react-icons/ri";
-import { RiAccountBoxLine } from "react-icons/ri";
-import { RiAtLine } from "react-icons/ri";
+import { useState } from 'react';
+import { RiCalendar2Line, RiAccountBoxLine, RiAtLine } from "react-icons/ri";
+import { deleteUser } from '../services/userService';
 
 function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, editBirthDate, setEditBirthDate, onSave, onCancel }) {
-  
+  const [message, setMessage] = useState('');
+
+  const handleDelete = async () => {
+    const confirmation = window.confirm('Tem certeza que deseja excluir esse cadastro?');
+    if (confirmation) {
+      await deleteUser(user.id);
+      setMessage('Exclusão efetuada com sucesso!');
+    }
+  };
+
   const handleCancel = () => {
     onCancel();  
     window.location.reload();  
@@ -20,8 +29,8 @@ function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, edit
         <RiAccountBoxLine className="input-icon" />
         <input
           type='text'
-          id="editName" 
-          name="editName" 
+          id="editName"
+          name="editName"
           value={editName}
           onChange={(e) => setEditName(e.target.value)}
           placeholder='Nome'
@@ -31,8 +40,8 @@ function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, edit
         <RiAtLine className="input-icon" />
         <input
           type='email'
-          id="editEmail" 
-          name="editEmail" 
+          id="editEmail"
+          name="editEmail"
           value={editEmail}
           onChange={(e) => setEditEmail(e.target.value)}
           placeholder='Email'
@@ -42,8 +51,8 @@ function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, edit
         <RiCalendar2Line className="input-icon" />
         <input
           type='date'
-          id="editBirthDate" 
-          name="editBirthDate" 
+          id="editBirthDate"
+          name="editBirthDate"
           value={editBirthDate}
           onChange={(e) => setEditBirthDate(e.target.value)}
           placeholder='Data de Nascimento'
@@ -51,6 +60,8 @@ function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, edit
       </div>
       <button type='button' onClick={onSave}>Atualizar</button>
       <button type='button' onClick={handleCancel}>Cancelar</button>
+      <button type='button' onClick={handleDelete}>Excluir</button>
+      {message && <p>{message}</p>}
     </form>
   );
 }

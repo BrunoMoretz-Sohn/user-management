@@ -1,21 +1,42 @@
 import '../pages/home/style.css';
-import { useRef } from 'react';
-import { RiCalendar2Line } from "react-icons/ri";
-import { RiAccountBoxLine } from "react-icons/ri";
-import { RiAtLine } from "react-icons/ri";
-
+import { useRef, useState } from 'react';
+import { RiCalendar2Line, RiAccountBoxLine, RiAtLine } from "react-icons/ri";
 
 function FormCadastro({ onSubmit }) {
   const inputName = useRef();
   const inputEmail = useRef();
   const inputBirthDate = useRef();
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+
+  const validateEmail = (email) => {
+    return email.includes('@');
+  };
 
   const handleSubmit = () => {
-    onSubmit(inputName.current.value, inputEmail.current.value, inputBirthDate.current.value);
+    const name = inputName.current.value;
+    const email = inputEmail.current.value;
+    const birthDate = inputBirthDate.current.value;
 
+
+    if (!validateEmail(email)) {
+      setError('Digite um email válido!');
+      return; 
+    }
+
+    onSubmit(name, email, birthDate);
+    setMessage('Usuário cadastrado com sucesso!');
+    setError(''); 
+
+   
     inputName.current.value = '';
     inputEmail.current.value = '';
     inputBirthDate.current.value = '';
+
+  
+    setTimeout(() => {
+      setMessage('');
+    }, 3000);  
   };
 
   return (
@@ -26,17 +47,19 @@ function FormCadastro({ onSubmit }) {
       </header>
       <div className="input-container">
         <RiAccountBoxLine className="input-icon" />
-        <input placeholder="Nome" id="name" name="name" type='text'  autoComplete="off" ref={inputName} />
+        <input placeholder="Nome" id="name" name="name" type='text' autoComplete="off" ref={inputName} />
       </div>
       <div className="input-container">
         <RiAtLine className="input-icon" />
-        <input placeholder="Email" id="email" name="email" type='email'  autoComplete="off"  ref={inputEmail} />
+        <input placeholder="Email" id="email" name="email" type='email' autoComplete="off" ref={inputEmail} />
       </div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className="input-container">
         <RiCalendar2Line className="input-icon" />
         <input placeholder="Data de Nascimento" id="birthDate" name="birthDate" type='date' ref={inputBirthDate} />
       </div>
-        <button type='button' onClick={handleSubmit}>Cadastrar</button>
+      <button type='button' onClick={handleSubmit}>Cadastrar</button>
+      {message && <p>{message}</p>}
     </form>
   );
 }

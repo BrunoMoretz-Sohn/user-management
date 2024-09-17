@@ -15,6 +15,7 @@ export async function createUser(name, email, birthDate) {
   try {
     const birthDateISO = dayjs(birthDate).toISOString();
     await api.post('/users', { name, email, birthDate: birthDateISO });
+    alert('Usuário cadastrado com sucesso!');
   } catch (error) {
     console.error('Erro ao cadastrar usuário:', error);
   }
@@ -22,13 +23,12 @@ export async function createUser(name, email, birthDate) {
 
 export async function searchUser(param) {
   try {
-    
     const url = param.includes('@')
       ? `/search?email=${encodeURIComponent(param)}`
       : /^[a-fA-F0-9]{24}$/.test(param)
-        ? `/users/${encodeURIComponent(param)}` 
-        : `/search?name=${encodeURIComponent(param)}`; 
-
+        ? `/users/${encodeURIComponent(param)}`
+        : `/search?name=${encodeURIComponent(param)}`;
+    
     const response = await api.get(url);
     return response.data;
   } catch (error) {
@@ -48,8 +48,13 @@ export async function updateUser(id, name, email, birthDate) {
 
 export async function deleteUser(id) {
   try {
-    await api.delete(`/users/${id}`);
+    const confirmation = confirm('Tem certeza que deseja excluir esse cadastro?');
+    if (confirmation) {
+      await api.delete(`/users/${id}`);
+      alert('Exclusão efetuada com sucesso!');
+    }
   } catch (error) {
     console.error('Erro ao deletar usuário:', error);
   }
 }
+
