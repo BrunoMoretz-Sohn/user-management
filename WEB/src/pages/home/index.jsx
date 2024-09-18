@@ -98,10 +98,14 @@ function Home() {
       
         
         <div className='users-container'>
+            
+        <div className="intro-container">
           <div className="intro-text">
             <h4>Utilize o sistema para buscar usuários, cadastrar novos perfis e gerenciar informações.</h4>
             <p>A função de busca permite localizar rapidamente um usuário, enquanto o cadastro e a edição facilitam a atualização de dados conforme necessário.</p>
           </div>
+          <img src={ Logo } alt="Logo-intro" className='Logo-intro' tittle="Main Logo"/>
+        </div>  
           <div className='list-container'>
             <header>
               <h2>Perfis Ativos</h2>

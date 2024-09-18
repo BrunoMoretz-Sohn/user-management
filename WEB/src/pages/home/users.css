@@ -6,10 +6,22 @@
   height: 155vh;
 }
 
+.intro-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.intro-container img {
+  height: 20rem;
+  padding-top: 8rem;
+  padding-right: 5rem;
+
+}
+
 .intro-text {
-  padding-top: 10rem;
-  padding-inline: 18rem;
-  padding-bottom: 9rem;
+  padding-top: 6rem;
+  padding-left: 15rem;
+  padding-bottom: 8rem;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -36,7 +48,7 @@ h2 {
 .users-list {
   padding-right: 2rem;
   margin-top: 3vh;
-  height: 75vh;
+  height: 84vh;
   width: 35vw;
   margin-bottom: 5vh;
   overflow-y: auto;

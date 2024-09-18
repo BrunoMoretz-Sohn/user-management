@@ -14,43 +14,9 @@
   }
 
   .intro-text {
-    padding-inline: 10rem; 
-    padding-bottom: 4.2rem;
-  }
-
-  .intro-text h4 {
-    font-size: clamp(1.2rem, 4vw, 2.6rem); 
-  }
-
-  .intro-text p {
-    font-size: clamp(0.7rem, 3vw, 1rem); 
-  }
-
-  .users-list {
-    height: 87vh;
-  }
-
-}
-
-@media (max-width: 1280px) {
-
-  .form-container {
-    height: 170vh;
-  }
-
-  .users-container {
-    height: 165vh;
-  }
-
-  .users-list {
-    margin-bottom: 6vh;
-    
-  }
-
-  .intro-text {
-    padding-top: 18vh;
-    padding-inline: 6vw; 
-    padding-bottom: 18vh;
+    padding-top: 6rem;
+    padding-left: 10rem; 
+    padding-bottom: 5rem;
   }
 
   .intro-text h4 {
@@ -62,26 +28,70 @@
   }
 
   .users-list {
-    height: 87vh;
+    height: 99vh;
   }
 
 }
 
-@media (max-width: 768px) { /* ajuste o valor conforme necessário */
+@media (max-width: 1400px) {
+
+  .form-container {
+    height: 170vh;
+  }
+
+  .users-container {
+    height: 165vh;
+  }
+
+  .list-container {
+    padding-inline: 5rem;
+  }
+
+  .users-list {
+    margin-bottom: 6vh;
+    height: 80vh;
+    
+  }
+
+  .intro-text {
+    padding-top: 5rem;
+    padding-left: 4rem; 
+    padding-bottom: 5rem;
+  }
+
+  .intro-text h4 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem); 
+  }
+
+  .intro-text p {
+    font-size: clamp(0.7rem, 3vw, 1rem); 
+  }
+
+}
+
+@media (max-width: 800px) { 
+
   .container {
     display: flex!important;
     flex-direction: column;
-    height: 230vh;
+    height: 210vh;
   }
 
   .form-container {
     height: auto;
     padding-inline: 1vh;
+    padding-top: 6rem;
+    padding-bottom: 5vh;
     margin-bottom: 1vh;
   }
 
-  .intro-text {
+  .intro-container{
     display: none;
+  }
+
+  .input-container {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .list-container header {
@@ -96,7 +106,7 @@
     margin: 0;
     padding: 0;
     width: auto;
-    max-height: 80vh;
+    max-height: 80rem;
   }
 
   .user-button {
