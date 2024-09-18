@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-export const listAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   try {
     const users = await prisma.user.findMany();
     res.status(200).json(users);
@@ -30,7 +30,7 @@ export const getUserById = async (req, res) => {
 };
 
 
-export const searchUser = async (req, res) => {
+export const getUser = async (req, res) => {
   try {
     const { name, email } = req.query;
 

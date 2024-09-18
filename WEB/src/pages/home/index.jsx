@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { getUsers, createUser, searchUser, updateUser, deleteUser } from '../../services/userService';
-import FormCadastro from '../../components/FormCadastro';
-import FormBusca from '../../components/FormBusca';
-import FormEdicao from '../../components/FormEdicao';
+import { getUsers, createUser, getUser, updateUser, deleteUser } from '../../services/userService';
+import FormRegister from '../../components/FormRegister';
+import FormSearch from '../../components/FormSearch';
+import FormEdit from '../../components/FormEdit';
 import dayjs from 'dayjs';
 import { TbUserEdit } from "react-icons/tb";
 import { TbTrash } from "react-icons/tb";
@@ -30,8 +30,8 @@ function Home() {
     setUsers(usersData);
   };
 
-  const handleSearchUser = async () => {
-    const user = await searchUser(searchParam);
+  const handlegetUser = async () => {
+    const user = await getUser(searchParam);
     if (user) {
       setUsers([user]);
       setUserToEdit(user);
@@ -79,10 +79,10 @@ function Home() {
         </div>
         <div className='container'>
         <div className='form-container'>
-          <FormCadastro onSubmit={handleCreateUser} />
-          <FormBusca searchParam={searchParam} setSearchParam={setSearchParam} onSearch={handleSearchUser} />
+          <FormRegister onSubmit={handleCreateUser} />
+          <FormSearch searchParam={searchParam} setSearchParam={setSearchParam} onSearch={handlegetUser} />
           {userToEdit && (
-            <FormEdicao
+            <FormEdit
               user={userToEdit}
               editName={editName}
               setEditName={setEditName}

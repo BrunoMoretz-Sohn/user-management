@@ -21,7 +21,7 @@ export async function createUser(name, email, birthDate) {
   }
 }
 
-export async function searchUser(param) {
+export async function getUser(param) {
   try {
     const url = param.includes('@')
       ? `/search?email=${encodeURIComponent(param)}`

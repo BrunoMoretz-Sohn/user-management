@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { RiCalendar2Line, RiAccountBoxLine, RiAtLine } from "react-icons/ri";
 import { deleteUser } from '../services/userService';
 
-function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, editBirthDate, setEditBirthDate, onSave, onCancel }) {
+function FormEdit({ user, editName, setEditName, editEmail, setEditEmail, editBirthDate, setEditBirthDate, onSave, onCancel }) {
   const [message, setMessage] = useState('');
 
   const handleDelete = async () => {
@@ -66,4 +66,4 @@ function FormEdicao({ user, editName, setEditName, editEmail, setEditEmail, edit
   );
 }
 
-export default FormEdicao;
+export default FormEdit;

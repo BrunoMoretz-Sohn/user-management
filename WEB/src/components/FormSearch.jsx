@@ -1,7 +1,7 @@
 import '../pages/home/style.css';
 import { RiSearchLine } from "react-icons/ri";
 
-function FormBusca({ onSearch, searchParam, setSearchParam }) {
+function FormSearch({ onSearch, searchParam, setSearchParam }) {
   
   const handleSearch = () => {
     onSearch();  
@@ -30,5 +30,5 @@ function FormBusca({ onSearch, searchParam, setSearchParam }) {
   );
 }
 
-export default FormBusca;
+export default FormSearch;
 

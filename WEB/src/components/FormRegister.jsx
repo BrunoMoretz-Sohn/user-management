@@ -2,7 +2,7 @@ import '../pages/home/style.css';
 import { useRef, useState } from 'react';
 import { RiCalendar2Line, RiAccountBoxLine, RiAtLine } from "react-icons/ri";
 
-function FormCadastro({ onSubmit }) {
+function FormRegister({ onSubmit }) {
   const inputName = useRef();
   const inputEmail = useRef();
   const inputBirthDate = useRef();
@@ -64,4 +64,4 @@ function FormCadastro({ onSubmit }) {
   );
 }
 
-export default FormCadastro;
+export default FormRegister;
